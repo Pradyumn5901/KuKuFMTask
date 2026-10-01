@@ -1,0 +1,14 @@
+[project]
+name = "serial"
+version = "0.1.0"
+description = "Agentic 200-episode serial writer with human-in-the-loop"
+requires-python = ">=3.10"
+dependencies = ["groq>=0.30", "truststore>=0.10"]
+
+[project.optional-dependencies]
+claude = ["anthropic>=0.40"]
+openai = ["openai>=1.50"]   # also used for Gemini / OpenRouter / Ollama (OpenAI-compatible)
+
+# No build step: uv just manages the venv.  Run with:  uv run main.py ...  |  uv run demo.py
+[tool.uv]
+package = false

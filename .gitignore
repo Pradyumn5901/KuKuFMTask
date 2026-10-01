@@ -1,0 +1,9 @@
+runs/
+logs/
+__pycache__/
+.venv/
+*.egg-info/
+build/
+.env
+groq
+demo_output/*-mock/
