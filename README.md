@@ -134,7 +134,7 @@ On the free tier the binding limit is 200K tokens/day per model (≈ 600K/day ac
 
 **How to cut it**
 
-* **Fix the critic/length loop** — in the demo the critic never passed a draft (mostly word count), so every episode paid for 2–3 critic calls and 1–2 rewrites. Passing first time would cut per-episode tokens by ~50 %.
+* **Fix the critic/length loop** — in the demo the critic never passed a draft (mostly word count). Episodes used 2–3 critic calls and 1–2 rewrites; passing first time would cut per-episode tokens by ~50 %.
 * Prompt caching of the stable brief prefix (bible, rules, chapter summaries) — cached tokens are cheaper and don't count toward Groq's limits.
 * Skip the LLM critic when code checks pass and the previous episode passed; critique every other episode.
 * Draft with a cheap model, revise with a strong one only on failure.
@@ -187,13 +187,14 @@ Other providers: `uv sync --extra claude` or `uv sync --extra openai` (Gemini / 
 | `engine.py` | planning, memory, write → critic → revise loop, extraction, feedback propagation, retcon |
 | `llm.py` | provider routing, rate limits, retries, JSON validation + fallback, trace, cost, logging |
 | `ui.py` | browser UI (stdlib HTTP server + one vanilla HTML/JS page) |
-| `demo.py` | optional scripted end-to-end demo (`MOCK=1 uv run demo.py`) |
+| `setup.md` | fresh-clone installation and run instructions |
+| `Video.md` | demo recording walkthrough and artifact guide |
 
 ## Known limitations
 
 Seen in the demo run — details and fixes in [FUTURE_SCOPE.md](FUTURE_SCOPE.md):
 
-* **The critic never passed a draft**: all 15 episodes hit the revision limit and were approved by the human; 9 of 15 are over 700 words.
+* **The critic never passed a draft**: all 15 episodes were approved by the human despite unresolved critic issues; 5 reached the 2-revision limit. Based on the saved run word counts, 10 of 15 episodes exceed 700 words.
 * **Duplicate identities**: the doctor was recorded as both "Dr. Selene Patel" and "Selene Patel" (exact-name matching).
 * **Keyword fact retrieval**: paraphrased facts can be missed, and the critic only sees retrieved facts.
 * **Stale beats are marked, not re-planned**: 41 beats still mention the doctor after her death; the writer adapts at write time.

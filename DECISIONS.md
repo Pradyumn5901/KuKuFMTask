@@ -32,7 +32,7 @@ Because memory is a fold, **editing history is cheap**. Retconning episode 40 re
 2. **LLM critic** (cheap model, same brief as the writer): consistency against the retrieved facts, cast status, timeline and world rules; repeated plot moves compared with the signature list; directive violations; whether the beat was followed; hook and momentum scores.
 3. **Structural flags in the brief:** stale or overdue threads, overdue planned threads, and characters off-page too long. These push the writer before a problem happens.
 
-A draft that fails gets up to 2 revisions, capped at $0.30 per episode. After that it goes to the human with its open issues shown.
+A draft that fails gets up to 2 revisions, capped at $0.03 per episode by the default `EP_COST_CAP`. After that it goes to the human with its open issues shown.
 
 ## 4. What breaks first as the story grows, and how would I fix it?
 
