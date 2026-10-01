@@ -1,7 +1,9 @@
 # Demo video — what happens when
 
-**File:** `videos/combined.mp4` · ~4:00 · no audio · browser UI (`uv run generate.py ui`), story `demo`
+**Recording:** submitted separately in the accompanying Drive folder · 3:53 · no audio · browser UI (`uv run generate.py ui`), story `demo`
 **Premise:** *A night-shift lift operator realises the elevator keeps stopping at a floor that was demolished 20 years ago.*
+
+The recording and generated demo artifacts are supplied separately in Drive; they are not stored in this Git repository. The Drive submission includes the recording and the complete `runs/demo/` folder so reviewers can inspect the plan, episodes, human-feedback history, saved state, and trace.
 
 Timestamps are approximate (the clips were sped up to fit; waiting on the model is compressed).
 
@@ -23,11 +25,13 @@ Timestamps are approximate (the clips were sped up to fit; waiting on the model 
 
 
 
-## Where it shows up in the output (`runs/demo/`)
+## Where it shows up in the demo artifacts (`runs/demo/` in Drive)
 
 - **Part 1–2:** `arc_plan.md` (plan + 200 beats, revised/stale tags)
-- **Part 4–5, 7, 8, 10:** `hitl_log.md` (every intervention, the rule it created and the beats it changed)
+- **Part 4–5, 7, 8, 10:** `hitl_log.md` (interventions, the rule each created, and the beats it changed)
 - **Part 9:** Selene recorded dead from ep 4; returns only as a ghost (eps 6, 7, 9, 12, 13–15) — `story.md`
-- **Part 10:** the planner applied feedback 2 to beats 15–16 rather than eps 7–8, so the gradual manifestation in eps 7–8 (three jump scares) was added as **manual edits** afterwards, logged in `hitl_log.md`, `state.json`, `trace.jsonl` and `logs/serial.log`
+- **Part 10:** the planner applied feedback 2 to beats 15–16 rather than eps 7–8, so the gradual manifestation in eps 7–8 (three jump scares) was added as **manual edits** afterwards, recorded in `hitl_log.md`, `state.json`, and `trace.jsonl`
 - **Part 11:** `trace.jsonl`
+
+The Drive copy of `runs/demo/` includes `episodes/` (episodes 1–15), `state.json`, and the other files listed above. 
 
